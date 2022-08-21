@@ -92,10 +92,12 @@ header {
   gap: var(--gap 1rem);
   height: 100px;
   padding-inline: 10px;
+  max-width: 1400px;
+  margin-inline: auto;
 }
 header .logo img {
-  height: 40px;
-  width: auto;
+  height: auto;
+  width: 100px;
 }
 header .mobile-nav-toggle {
   cursor: pointer;
@@ -113,6 +115,11 @@ header .mobile-nav-toggle {
 header .mobile-nav-toggle[aria-expanded=true] {
   background-image: url("./images/icon-close-menu.svg");
 }
+@media (min-width: 1200px) {
+  header .mobile-nav-toggle {
+    display: none;
+  }
+}
 header nav {
   z-index: 2;
   position: fixed;
@@ -125,6 +132,27 @@ header nav {
   color: hsl(0deg, 0%, 41%);
   transform: translateX(100%);
   transition: all 500ms ease-in-out;
+  font-weight: 700;
+}
+@media (min-width: 1200px) {
+  header nav {
+    transform: translateX(0);
+    flex-direction: row;
+    inset: 0;
+    position: relative;
+    background-color: transparent;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: inherit;
+  }
+}
+@media (min-width: 1200px) {
+  header nav .menu {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+  }
 }
 header nav .menu li {
   list-style: none;
@@ -141,9 +169,10 @@ header nav .menu li img {
           margin-inline-start: 0;
 }
 header nav .menu .dropdown {
+  position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: auto;
   align-items: flex-start;
   justify-content: center;
   transition: all 500ms ease-in;
@@ -171,16 +200,40 @@ header nav .menu .dropdown .company-dropdown-items, header nav .menu .dropdown .
   transition: all 200ms ease-in;
   overflow: hidden;
 }
+@media (min-width: 1200px) {
+  header nav .menu .dropdown .company-dropdown-items, header nav .menu .dropdown .features-dropdown-items {
+    position: absolute;
+    top: -80px;
+    background-color: hsl(0deg, 0%, 98%);
+    box-shadow: 0 0 20px rgb(208, 208, 208);
+    border-radius: 20px;
+    padding: 10px 20px;
+    width: auto;
+  }
+}
 header nav .menu .dropdown .company-dropdown-items img, header nav .menu .dropdown .features-dropdown-items img {
   -webkit-margin-end: 15px;
           margin-inline-end: 15px;
 }
+@media (min-width: 1200px) {
+  header nav .menu .dropdown .company-dropdown-items {
+    transform: translateY(120px);
+    left: 0;
+    width: 150px;
+  }
+}
 header nav .menu .dropdown .company-dropdown-items[data-visible=true] {
-  height: 150px;
+  height: auto;
   opacity: 1;
 }
+@media (min-width: 1200px) {
+  header nav .menu .dropdown .features-dropdown-items {
+    right: 0;
+    transform: translateY(120px);
+  }
+}
 header nav .menu .dropdown .features-dropdown-items[data-visible=true] {
-  height: 200px;
+  height: auto;
   opacity: 1;
 }
 header nav[data-visible=true] {
@@ -190,10 +243,21 @@ header .buttons {
   display: flex;
   flex-direction: column;
 }
+@media (min-width: 1200px) {
+  header .buttons {
+    flex-direction: row;
+  }
+}
 header .buttons button {
+  cursor: pointer;
   color: hsl(0deg, 0%, 41%);
   background-color: transparent;
   padding: 10px 20px;
+  transition: all 200ms ease-in;
+}
+header .buttons button:hover {
+  color: hsl(0deg, 0%, 8%);
+  border-color: hsl(0deg, 0%, 8%);
 }
 header .buttons .login {
   border: 0;
@@ -203,28 +267,79 @@ header .buttons .register {
   border: 1px solid hsl(0deg, 0%, 41%);
 }
 
+main {
+  width: 100vw;
+}
+@media (min-width: 1200px) {
+  main {
+    padding: 5em;
+  }
+}
 main .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 1200px;
+}
+@media (min-width: 1200px) {
+  main .container {
+    flex-direction: row-reverse;
+    margin: auto;
+    width: 100%;
+    align-items: stretch;
+    height: auto;
+  }
 }
 main .container .info {
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding-inline: 10px;
+  padding-inline: 20px;
   padding-block: 40px;
   gap: 40px;
+  flex-grow: 2;
+  flex-shrink: 1;
+}
+@media (min-width: 1200px) {
+  main .container .info {
+    -webkit-padding-end: 60px;
+            padding-inline-end: 60px;
+    justify-content: flex-end;
+    width: 100%;
+    height: auto;
+    padding-block: 0;
+    text-align: start;
+  }
+}
+main .container .info br {
+  display: none;
+}
+@media (min-width: 1200px) {
+  main .container .info br {
+    display: block;
+  }
 }
 main .container .info h1 {
   font-size: 2em;
   font-weight: 700;
 }
+@media (min-width: 1200px) {
+  main .container .info h1 {
+    font-size: 4em;
+    line-height: 1em;
+  }
+}
 main .container .info p {
   color: hsl(0deg, 0%, 41%);
 }
+@media (min-width: 1200px) {
+  main .container .info p {
+    font-size: 1.3em;
+  }
+}
 main .container .info button {
+  cursor: pointer;
   background-color: hsl(0deg, 0%, 8%);
   color: hsl(0deg, 0%, 98%);
   width: 200px;
@@ -232,23 +347,61 @@ main .container .info button {
   padding: 10px 25px;
   border: 1px solid hsl(0deg, 0%, 8%);
   border-radius: 10px;
+  transition: all 200ms ease-in;
+}
+main .container .info button:hover {
+  color: hsl(0deg, 0%, 8%);
+  background-color: hsl(0deg, 0%, 98%);
+}
+@media (min-width: 1200px) {
+  main .container .info button {
+    margin-inline: 0;
+  }
 }
 main .container .info .clients {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: auto;
+  width: 100%;
+  gap: 30px;
 }
-main .container .info .clients img {
-  width: 75px;
-  height: 100%;
+@media (min-width: 1200px) {
+  main .container .info .clients {
+    justify-content: flex-start;
+  }
+}
+main .container .info .clients .img-container {
+  width: 100%;
+  height: auto;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
 }
 main .container .banner {
   width: 100%;
-  height: auto;
+  flex-grow: 1;
+  flex-shrink: 2;
 }
-main .container .banner img {
+main .container .banner .mobile-banner {
+  display: block;
   width: inherit;
   height: inherit;
+}
+@media (min-width: 1200px) {
+  main .container .banner .mobile-banner {
+    display: none;
+  }
+}
+main .container .banner .pc-banner {
+  display: none;
+  width: inherit;
+  height: inherit;
+}
+@media (min-width: 1200px) {
+  main .container .banner .pc-banner {
+    display: block;
+  }
 }
 
 .overlay {

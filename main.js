@@ -44,5 +44,6 @@ company.addEventListener("click", (e) => {
     }else{
         companyDropdownItems.setAttribute('data-visible', false)
         companyDropIcon.setAttribute('data-active', false)
+        
     }
 });
