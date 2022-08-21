@@ -139,11 +139,12 @@ header{
                 display: flex;
                 align-items: center;
                 margin-block: 20px;
+                padding-inline: 10px;
                 img{
                     display: inline;
                     width: 15px;
                     height: 100%;
-                    margin-inline-start: 10px;
+                    margin-inline-start: 0;
                 }
             
             }
@@ -155,7 +156,7 @@ header{
                 align-items: flex-start;
                 justify-content: center;
                 transition: all 500ms ease-in;
-                #features{
+                #features, #company{
                     display: none;
                 }
                 label{
@@ -163,26 +164,36 @@ header{
                     padding: 0;
                     margin: 0;
                 }
-                #features-drop-icon{
+                #features-drop-icon, #company-drop-icon{
                     height: auto;
                     width: 20px;
                     transition: all 100ms ease-in;
+                    margin-left: 10px;
                     &[data-active='true']{
                         transform: rotate(180deg);
                     }
-
                 }
-                .dropdown-items{
+                
+                .company-dropdown-items, .features-dropdown-items{
                     height: 0;
                     opacity: 0;
                     transition: all 200ms ease-in;
                     overflow: hidden;
+                   
+                    img{
+                        margin-inline-end: 15px;
+                    }
+                }
+                .company-dropdown-items{
                     &[data-visible='true']{
-                        height: 190px;
+                        height: 150px;
                         opacity: 1;
                     }
-                    img{
-                        margin-inline: 15px;
+                }
+                .features-dropdown-items{
+                    &[data-visible='true']{
+                        height: 200px;
+                        opacity: 1;
                     }
                 }
             }

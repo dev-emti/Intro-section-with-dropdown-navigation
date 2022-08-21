@@ -18,17 +18,31 @@ togglerMenu.addEventListener("click", (e) => {
 
 // DROPDOWN
 features = document.querySelector('#features');
-dropdownItems = document.querySelector('.dropdown-items');
+company = document.querySelector('#company');
+featuresDropdownItems = document.querySelector('.features-dropdown-items');
+companyDropdownItems = document.querySelector('.company-dropdown-items');
 featuresDropIcon = document.querySelector('#features-drop-icon');
+companyDropIcon = document.querySelector('#company-drop-icon');
 
 features.addEventListener("click", (e) => {
-    visibility = dropdownItems.getAttribute('data-visible')
+    visibility = featuresDropdownItems.getAttribute('data-visible')
 
     if(visibility === "false"){
-        dropdownItems.setAttribute('data-visible', true)
+        featuresDropdownItems.setAttribute('data-visible', true)
         featuresDropIcon.setAttribute('data-active', true)
     }else{
-        dropdownItems.setAttribute('data-visible', false)
+        featuresDropdownItems.setAttribute('data-visible', false)
         featuresDropIcon.setAttribute('data-active', false)
+    }
+});
+company.addEventListener("click", (e) => {
+    visibility = companyDropdownItems.getAttribute('data-visible')
+
+    if(visibility === "false"){
+        companyDropdownItems.setAttribute('data-visible', true)
+        companyDropIcon.setAttribute('data-active', true)
+    }else{
+        companyDropdownItems.setAttribute('data-visible', false)
+        companyDropIcon.setAttribute('data-active', false)
     }
 });
