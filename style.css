@@ -40,7 +40,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: "Epilogue", sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* A elements that don't have a class get default styles */
@@ -234,6 +234,14 @@ main .container .info .clients {
 main .container .info .clients img {
   width: 75px;
   height: 100%;
+}
+main .container .banner {
+  width: 100%;
+  height: auto;
+}
+main .container .banner img {
+  width: inherit;
+  height: inherit;
 }
 
 .overlay {
